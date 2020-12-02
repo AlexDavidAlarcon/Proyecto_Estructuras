@@ -14,6 +14,8 @@ import javafx.stage.Stage;
  */
 public class Principal extends Application {
 
+    public static Stage stage=null;
+    
     @Override
     public void start(Stage stage) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
