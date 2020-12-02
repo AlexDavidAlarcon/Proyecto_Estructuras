@@ -21,8 +21,8 @@ public interface List<E> extends Iterable<E> {
    E get(int index);
    int indexOf(E element);
    boolean isEmpty();
-   E remove(int index);
+   boolean remove(int index);
    boolean remove(E element);
-   E set(int index, E element);
+   boolean set(int index, E element);
    int size();
 }
