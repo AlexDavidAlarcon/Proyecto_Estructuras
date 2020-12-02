@@ -5,7 +5,7 @@
  */
 package tdas_linkedlist;
 
-import java.util.List;
+import tdas_linkedlist.List;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
@@ -18,7 +18,7 @@ public class CircularLinkedList<E> implements List<E>, Iterable<E> {
     private NodeList<E> last;
     private int efectivo;
 
-    public CircularDoublyLinkedList () {
+    public CircularLinkedList () {
         last = null;
         efectivo = 0;
     }
