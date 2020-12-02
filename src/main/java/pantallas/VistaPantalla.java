@@ -9,6 +9,7 @@ import com.mycompany.proyecto_estructuras.Principal;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -20,7 +21,7 @@ import javafx.scene.layout.VBox;
  * @author david
  */
 public class VistaPantalla {
-    Sistema sis=new Sistema();
+    Sistema sis = new Sistema();
     private StackPane menu = new StackPane();
     private HBox base_inicio = new HBox(100);
     private ImageView fondo;

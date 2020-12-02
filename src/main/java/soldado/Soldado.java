@@ -10,25 +10,36 @@ import javafx.scene.image.ImageView;
 
 /**
  *
- * @author david
+ * @author david,edits: Gabriel
  */
 public class Soldado {
-    String estado = "vivo";
+    //El estado del soldado se cambió a boolean: True si está vivo, False
+    //si está muerto.
+    boolean estado = true;
     double posicionX;
     double posicionY;
-    //String ruta = "";
-    //ImageView cuerpo = new ImageView(new Image(ruta, posicionX, posicionY, false, false));
+    //Las rutas de los archivos ahora son atributos, para referenciarlas siempre
+    //que las necesitemos, en vez de escribirlas a cada rato.
+    String rutaCuerpo = "";
+    String rutaCuerpoMuerto = "";
+    ImageView cuerpo;
 
     
     public Soldado(double posicionX, double posicionY, int tamanox, int tamanoy) {
         this.posicionX = posicionX;
         this.posicionY = posicionY;
-        //cuerpo.setFitHeight(tamanoy);
-        //cuerpo.setFitWidth(tamanox);
+        try{
+            cuerpo = new ImageView(new Image(rutaCuerpo, posicionX, posicionY, false, false));
+            cuerpo.setFitHeight(tamanoy);
+            cuerpo.setFitWidth(tamanox);
+        } catch(Exception e) {
+            System.err.println("No se pudo cargar la imagen del cuerpo, error en la ruta.");
+        }
+        
     }
 
     
-    public String getEstado() {
+    public boolean isAlive() {
         return estado;
     }
 
@@ -41,10 +52,15 @@ public class Soldado {
     }
 
    
-    public void setEstado(String estado) {
-        this.estado = estado;
-        //Image nruta = new Image("imagenes/muerto.png");
-        //cuerpo.setImage(nruta);
+    public void morir() {
+        this.estado = false;
+        try{
+            Image nruta = new Image(rutaCuerpoMuerto);
+            cuerpo.setImage(nruta);
+        } catch(Exception e) {
+            System.err.println("Error al cargar la imagen del cuerpo muerto.");
+        }
+        
     }
 
   
