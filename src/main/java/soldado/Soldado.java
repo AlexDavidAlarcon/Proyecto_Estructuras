@@ -38,7 +38,10 @@ public class Soldado {
         
     }
 
-    
+    public ImageView getCuerpo() {
+        return cuerpo;
+    }
+
     public boolean isAlive() {
         return estado;
     }
