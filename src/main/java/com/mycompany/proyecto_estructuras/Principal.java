@@ -6,7 +6,9 @@
 package com.mycompany.proyecto_estructuras;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pantallas.VistaPantalla;
 
 /**
  *
@@ -14,11 +16,16 @@ import javafx.stage.Stage;
  */
 public class Principal extends Application {
 
-    public static Stage stage=null;
+    
     
     @Override
     public void start(Stage stage) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        VistaPantalla vista = new VistaPantalla();
+        stage.setScene(new Scene(vista.getMenu_inicio()));
+        stage.show();
     }
     
+    public static void main(String args[]){
+        Application.launch(args);
+    }
 }
