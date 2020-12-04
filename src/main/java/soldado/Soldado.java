@@ -79,4 +79,11 @@ public class Soldado {
         return this.id == sold.id;
     }
 
+    @Override
+    public String toString() {
+        return "Soldado{" + "estado=" + estado + ", id=" + id + '}';
+    }
+    
+    
+
 }
