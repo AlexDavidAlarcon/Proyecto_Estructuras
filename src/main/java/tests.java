@@ -21,7 +21,7 @@ public class tests {
     public static void main(String[] args) {
         Sistema sis = new Sistema();
         
-        sis.iniciarCirculo();
+        sis.iniciarCirculo(7);
         sis.ejecucion();
     }
     

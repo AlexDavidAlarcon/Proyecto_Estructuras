@@ -27,7 +27,8 @@ public class Sistema extends Thread {
     
     //Este metodo crea la lista circular con tantos soldados como sean requeridos.
     //Se debe haber fijado una cantidad de soldados previamente para que funcione.
-    public void iniciarCirculo(){
+    public void iniciarCirculo(int cantidad){
+        cantidadSoldados = cantidad;
         soldados = new CircularLinkedList<> ();
         for(int i = 0; i<= cantidadSoldados; i++) {
             soldados.addLast(new Soldado(i));
