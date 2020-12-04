@@ -23,6 +23,7 @@ public class Soldado {
     String rutaCuerpo = "";
     String rutaCuerpoMuerto = "";
     ImageView cuerpo;
+    int id;
 
     
     public Soldado(double posicionX, double posicionY, int tamanox, int tamanoy) {
@@ -36,6 +37,10 @@ public class Soldado {
             System.err.println("No se pudo cargar la imagen del cuerpo, error en la ruta.");
         }
         
+    }
+    
+    public Soldado(int enumeracion){
+        this.id = enumeracion;
     }
 
     public ImageView getCuerpo() {
@@ -55,8 +60,8 @@ public class Soldado {
     }
 
    
-    public void morir() {
-        this.estado = false;
+    public void matar(Soldado soldado) {
+        soldado.estado = false;
         try{
             Image nruta = new Image(rutaCuerpoMuerto);
             cuerpo.setImage(nruta);
@@ -66,5 +71,12 @@ public class Soldado {
         
     }
 
-  
+    private boolean getEstado() {
+        return this.estado;
+    }
+    
+    public boolean equals(Soldado sold){
+        return this.id == sold.id;
+    }
+
 }

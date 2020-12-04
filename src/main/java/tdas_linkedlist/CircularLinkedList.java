@@ -25,7 +25,7 @@ public class CircularLinkedList<E> implements List<E>, Iterable<E> {
         last = null;
         efectivo = 0;
     }
-
+    
     /**
      * 
      * @param element elemento que se quiere añadir al inicio de la lista

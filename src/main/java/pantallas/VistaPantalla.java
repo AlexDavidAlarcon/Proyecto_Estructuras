@@ -70,7 +70,7 @@ public class VistaPantalla {
 
     
     public void Empezar(){
-        Principal.stage.setScene(new Scene(sis.getContenido(),1000,500));
+        //Principal.stage.setScene(new Scene(sis.getContenido(),1000,500));
     }
     
     public void agregarContenido() {

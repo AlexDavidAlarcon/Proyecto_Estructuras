@@ -5,114 +5,54 @@
  */
 package pantallas;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.transform.Rotate;
+import java.util.Iterator;
 import soldado.Soldado;
 import tdas_linkedlist.CircularLinkedList;
 
+
+
 /**
  *
- * @author david, Gabriel
+ * @author Gabriel
  */
-public class Sistema {
-    
-    Pane contenido;
-    Label titulo;
+public class Sistema extends Thread {
     CircularLinkedList<Soldado> soldados;
-    Slider cantidadSoldados;
-    Label cantidadSelec;
-    Slider posicionInicio;
-    Pane imagenesSoldado;
-    HBox opciones;
-    VBox direccion;
-    Label direccionSelec;
-    Button izquierda;
-    Button derecha;
-    ImageView fondo;
-    Button simular;
+    int cantidadSoldados;
     
-    
-    public Sistema() {
-        
-        cantidadSoldados = new Slider(1, 20, 5);
-        cantidadSelec = new Label("5");
-    }
-    
-    
-    public Pane getContenido() {
-        return this.contenido;
-    }
-    
-    
-    public void agregarContenido() {
-        
-        soldados = new CircularLinkedList<>();
-        imagenesSoldado.getChildren().clear();
-        
-        double centrox = 0;
-        double centroy = 125;
-        double espacio = 360 / Integer.parseInt(cantidadSelec.getText());
-        int c = 0;
-        int tamx = 0, tamy = 0;
+    @Override
+    public void run() {
 
-        System.out.println(cantidadSelec.getText());
         
-        
-        if (Integer.parseInt(cantidadSelec.getText()) <= 5) {
-            tamx = 150;
-            tamy = 150;
-        } else if (Integer.parseInt(cantidadSelec.getText()) <= 10) {
-            tamx = 100;
-            tamy = 100;
-        } else if (Integer.parseInt(cantidadSelec.getText()) <= 15) {
-            tamx = 75;
-            tamy = 75;
-        } else {
-            tamx = 50;
-            tamy = 50;
+    }
+    
+    //Este metodo crea la lista circular con tantos soldados como sean requeridos.
+    //Se debe haber fijado una cantidad de soldados previamente para que funcione.
+    public void iniciarCirculo(){
+        soldados = new CircularLinkedList<> ();
+        for(int i = 0; i<= cantidadSoldados; i++) {
+            soldados.addLast(new Soldado(i));
         }
-        
-        
-        //agregando soldados a la lista
-        for (int i = 0; i < Integer.parseInt(cantidadSelec.getText()); i++) {
-            Soldado soldado = new Soldado(centrox, centroy, tamx, tamy);
-            soldados.addLast(soldado);
-        }
-        System.out.println(soldados.size());
-        
-        //agregando soldados en rotacion
-        for (Soldado sol : soldados) {
-            
-            //System.out.println(sol.isAlive());
-            Rotate eje = new Rotate();
-            eje.setPivotX(centrox);
-            eje.setPivotY(centroy);
-            eje.setAngle(espacio);
-
-            sol.getCuerpo().setLayoutX(0);
-            sol.getCuerpo().setLayoutY(50);
-
-            sol.getCuerpo().getTransforms().add(eje);
-            eje.setAngle(eje.getAngle() * c);
- 
-            c++;
-            imagenesSoldado.getChildren().add(sol.getCuerpo());
-
-        }
-
-        
-        
     }
     
-    public void iniciarContenido() {
+    public void ejecucion() {
+//        Soldado asesino;
+//        for(Soldado soldado: soldados){
+//            asesino = soldado;
+//            if(soldado != asesino){
+//                if(soldado.isAlive()){
+//                    asesino.matar(soldado);
+//                }
+//            }
+//        }
         
+        Iterator it = soldados.listIterator(0);
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
     }
+    
+
+    
+    
     
 }
